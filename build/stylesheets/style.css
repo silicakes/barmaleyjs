@@ -1,0 +1,90 @@
+/* line 13, style.scss */
+body {
+  background: #999999; }
+
+/* line 17, style.scss */
+.progressbar {
+  position: relative;
+  width: 40%;
+  height: 15px;
+  margin: 0 auto; }
+  /* line 23, style.scss */
+  .progressbar .tick-container {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1; }
+    /* line 32, style.scss */
+    .progressbar .tick-container .tick {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      height: 100%;
+      width: 2px;
+      background-color: #aaabac;
+      border-right: 1px solid white;
+      display: inline-block; }
+  /* line 41, style.scss */
+  .progressbar .dataset-container {
+    -webkit-box-shadow: 1px 1px 2px #c2c2c2 inset, -1px -1px 2px white inset;
+    -moz-box-shadow: 1px 1px 2px #c2c2c2 inset, -1px -1px 2px white inset;
+    box-shadow: 1px 1px 2px #c2c2c2 inset, -1px -1px 2px white inset;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #ccc;
+    padding: 3px;
+    line-height: 15px;
+    border: none;
+    overflow: visible;
+    margin: 0; }
+  /* line 59, style.scss */
+  .progressbar .data-bar {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 9px;
+    position: absolute;
+    top: 3px;
+    z-index: 20; }
+    /* line 66, style.scss */
+    .progressbar .data-bar:first-child {
+      margin-left: 3px; }
+    /* line 70, style.scss */
+    .progressbar .data-bar:last-child {
+      margin-right: 3px; }
+    /* line 74, style.scss */
+    .progressbar .data-bar.left-corner-radius {
+      -webkit-border-radius: 7px 0 0 7px;
+      -moz-border-radius: 7px 0 0 7px;
+      -ms-border-radius: 7px 0 0 7px;
+      -o-border-radius: 7px 0 0 7px;
+      border-radius: 7px 0 0 7px; }
+    /* line 78, style.scss */
+    .progressbar .data-bar.right-corner-radius {
+      -webkit-border-radius: 0 7px 7px 0;
+      -moz-border-radius: 0 7px 7px 0;
+      -ms-border-radius: 0 7px 7px 0;
+      -o-border-radius: 0 7px 7px 0;
+      border-radius: 0 7px 7px 0; }
+    /* line 82, style.scss */
+    .progressbar .data-bar.round-bar {
+      -webkit-border-radius: 7px;
+      -moz-border-radius: 7px;
+      -ms-border-radius: 7px;
+      -o-border-radius: 7px;
+      border-radius: 7px; }

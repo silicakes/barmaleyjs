@@ -1,0 +1,86 @@
+@import "compass";
+
+$progress-bar-tick-background: #aaabac;
+$progress-bar-tick-border: #ffffff;
+$progress-bar-background-online: #369;
+$progress-bar-secondary-value-background: #00f;
+$progress-bar-secondary-value-border: #ffffff;
+$progress-bar-background: #e7e7e7;
+$progress-bar-shadow-top: #c2c2c2;
+$progress-bar-shadow-bottom: #ffffff;
+$progress-bar-border-radius: 7px;
+
+body {
+	background: #999
+}
+
+.progressbar {
+	position: relative;
+	width: 40%;
+	height: 15px;
+	margin: 0 auto;
+
+	.tick-container {
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		text-align: center;
+		z-index: 1;
+
+		.tick {
+			@include box-sizing(border-box);
+			height: 100%;
+			width: 2px;
+			background-color: $progress-bar-tick-background;
+			border-right: 1px solid $progress-bar-tick-border;
+			display: inline-block;
+		}
+	}
+	.dataset-container {
+		@include box-shadow(1px 1px 2px $progress-bar-shadow-top inset, -1px -1px 2px $progress-bar-shadow-bottom inset);  
+		@include border-radius($progress-bar-border-radius);
+		@include box-sizing(border-box);
+		width: 100%;
+		height: 100%;
+		position: relative;
+		z-index: 10;
+		display: inline-block;
+		vertical-align: middle;
+		background-color: #ccc;
+		padding: 3px;
+		line-height: 15px;
+		border: none;
+		overflow: visible;
+		margin: 0;
+	}
+
+	.data-bar {
+		@include box-sizing(border-box);
+		height: 9px;
+		position: absolute;
+		top: 3px;
+		z-index: 20;
+
+		&:first-child {
+			margin-left: 3px;
+		}
+
+		&:last-child {
+			margin-right: 3px;
+		}
+	
+		&.left-corner-radius {
+			@include border-radius($progress-bar-border-radius 0 0 $progress-bar-border-radius);
+		}
+
+		&.right-corner-radius {
+			@include border-radius(0 $progress-bar-border-radius $progress-bar-border-radius 0);
+		}
+
+		&.round-bar {
+			@include border-radius($progress-bar-border-radius)
+		}
+	}
+}
