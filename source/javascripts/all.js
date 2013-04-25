@@ -6,16 +6,16 @@
 			finiteValue: 255
 		},
 		dataSets: [{
-				barLength: 40,
+				barWidth: 40,
 				startFrom: 0,
 				barColor: "#852",
 				title: "My awesome Data"
 			}, {
-				barLength: 15,
+				barWidth: 15,
 				startFrom: 20,
 				barColor: "#369"
 			}, {
-				barLength: 30,
+				barWidth: 30,
 				startFrom: 25,
 				barColor: "#a59",
 				css: {"border": "1px solid #fff"}
