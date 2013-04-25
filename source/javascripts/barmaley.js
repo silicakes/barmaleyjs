@@ -37,16 +37,19 @@
 
 	//private functions
 
-	function getDataBarByID(id, dataSet) {
-		$.each(dataSet, function($i, $v) {
+	function getDataBarByID(id) {
+		var element;
+		$.each(dataBars, function($i, $v) {
 			if(id == $v.id) {
-				return $v.element;
+				element = $v.element;
 			}
 		});
+
+		return element;
 	}
 
 	function renderBar(id, options, isNew) {
-		var el;  
+		var el = {};  
 		var mandatoryCSS = {
 			"width": options.barWidth + "%",
 			"left": options.startFrom + "%",
@@ -59,13 +62,13 @@
 				.attr("title", options.title || "");
 			datasetContainer.append(el);
 		 } else {
-		 	debugger;
 			el = $(getDataBarByID(id));
+			debugger;
 		 }
 
 		//if a css property was passed , merge it with what we must have, otherwise , use what we got
 		!!options.css ? el.css($.extend(mandatoryCSS,options.css)) : el.css(mandatoryCSS);
-		
+
 		//if it's close to the beginning - round the left side
 		if(options.startFrom <= 1) {
 			el.addClass("left-corner-radius");
