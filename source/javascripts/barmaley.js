@@ -21,7 +21,7 @@
 		debug && console.log(dupes);
 		
 		function setRecursiveID(predictedID) {
-			debug && console.log("predictedID:",predictedID, "isDupe?", $.inArray(predictedID, dupes) != -1)
+			debug && console.log("predictedID:",predictedID, "isDupe?", $.inArray(predictedID, dupes) != -1);
 			selectedID = predictedID;
 			//if not in Dupes
 			if($.inArray(selectedID, dupes) == -1) {
@@ -63,7 +63,6 @@
 			datasetContainer.append(el);
 		 } else {
 			el = $(getDataBarByID(id));
-			debugger;
 		 }
 
 		//if a css property was passed , merge it with what we must have, otherwise , use what we got
@@ -87,9 +86,15 @@
 		//updating the model
 		var dataContainer = self.data("barData");
 		dataBars = dataContainer.dataBars;
-		dataBars.push(
-			$.extend(isNew && {id: setID()},{element: el.get(0)}, options));
-		dataContainer.element = self.get(0);
+		
+		//very very temporary workaround
+		if(isNew) {
+			dataBars.push(
+				$.extend({id: setID()},{element: el.get(0)}, options));
+			dataContainer.element = self.get(0);
+		} else {
+			$.extend(dataBars[id], options);
+		}
 	}
 
 	//public methods
