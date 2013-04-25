@@ -4,22 +4,24 @@
 	// Global since it will be referred by post init methods
 	var self;
 	var datasetContainer;
+	var dataBars;
 	var dupes = [];
+	var debug = true;
 
-	var getID = function() {
-
+	// a recursive way to pull an available id, even if the array got scrambled
+	var setID = function() {
 		var selectedID;
-		$.each(datasetContainer, function($i, $v) {
+		$.each(dataBars, function($i, $v) {
 			var id = $v.id
 			if($.inArray(id, dupes) == -1) {
 				dupes.push(id);
 			}
 		});
 		
-		console.log(dupes);
+		debug && console.log(dupes);
 		
 		function setRecursiveID(predictedID) {
-			console.log("predictedID:",predictedID, "isDupe?", $.inArray(predictedID, dupes) != -1)
+			debug && console.log("predictedID:",predictedID, "isDupe?", $.inArray(predictedID, dupes) != -1)
 			selectedID = predictedID;
 			//if not in Dupes
 			if($.inArray(selectedID, dupes) == -1) {
@@ -57,7 +59,8 @@
 				.attr("title", options.title || "");
 			datasetContainer.append(el);
 		 } else {
-			el = $(getDataBarByID(id, $(this).data("barData").dataBars));
+		 	debugger;
+			el = $(getDataBarByID(id));
 		 }
 
 		//if a css property was passed , merge it with what we must have, otherwise , use what we got
@@ -80,11 +83,10 @@
 
 		//updating the model
 		var dataContainer = self.data("barData");
-		var dataBars = dataContainer.dataBars;
+		dataBars = dataContainer.dataBars;
 		dataBars.push(
-			$.extend({id: getID()},{element: el.get(0)}, options));
+			$.extend(isNew && {id: setID()},{element: el.get(0)}, options));
 		dataContainer.element = self.get(0);
-
 	}
 
 	//public methods
@@ -158,7 +160,6 @@
 				}
 
 				//Appending the data sets
-
 				$.each(opts.dataSets, function ($i, $v) {
 					renderBar("", $v, true);
 				});
@@ -166,27 +167,32 @@
 		},
 
 		add: function(options) {
-			renderBar("", options, true);
+			return this.each(function() {
+				renderBar("", options, true);
+			});
 		},
 
 		remove: function(id) {
-			var dataBars = self.data("barData").dataBars;
-			if(dataBars.length <= 0) {
-				$.error("No data-bars present: please create some first");
-			} else {
-				$.each(dataBars, function($i, $v) {
-					if($v.id == id) {
-						$($v.element).remove();
-						dataBars.splice($i,1);
-					}
-				});
-			}
+			return this.each(function() {
+				if(dataBars.length <= 0) {
+					$.error("No data-bars present: please create some first");
+				} else {
+					$.each(dataBars, function($i, $v) {
+						if($v.id == id) {
+							$($v.element).remove();
+							dupes.splice([$.inArray(id, dupes)], 1);
+							dataBars.splice($i, 1);
+							return false;
+						}
+					});
+				}
+			});
 		},
 
 		update: function(id, options) {
 			return this.each(function() {
-					renderBar.apply(this,[id, options, false]);
-				});
+				renderBar(id, options, false);
+			});
 		}
 	}
 
