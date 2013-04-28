@@ -25,18 +25,23 @@
 		<div id="main_content_wrap" class="outer">
 			<section id="main_content" class="inner">
 				<h1>barmaleyjs</h1>
-				<h2>Overview</h2>
+				<div class="navigation-menu">
+					<a href="#overview">Overview</a><span class="separator"></span>
+					<a href="#usage">Usage</a><span class="separator"></span>
+					<a href="#documentation">Documentation</a><span class="separator"></span>
+					<a href="#examples">Examples</a>
+				</div>
+				<h2 id="overview">Overview</h2><a href="#">Back to Top</a>
 				<p>
 					Ever needed a progressbar and the one provided by jQuery-UI just didn't cut it?
 					Meet Barmaley!
 					Barmaley allows you to create a progressbar with several data progressions (referred as data-bars) and access/manage the data through a viewmodel attached to the parent containers $.data() object
 				</p>
-				<a href="#examples">Examples</a>
-				<h2>Usage</h2>
+				<h2 id="usage">Usage</h2><a href="#">Back to Top</a>
 				<p>
 					<code>$("#progressbar").barmaley(options);</code>
 				</p>
-				<h2>Init options</h2>
+				<h2 id="documentation">Init options</h2>
 				<p>The options parameter is a javascript object that contain one or more of the following:</p>
 				<p><strong>dataSets</strong> - an array of objects that contain the following properties:</p>
 				<ul>
@@ -75,6 +80,7 @@
 					<li><p><strong>dataBars</strong> - [object] an object containing the data regarding the data-bars in addition to an integer id</p></li>
 					<li><p><strong>element</strong> - the element the method was initiated upon, it might sound redundant, but will be very beneficiary to those who choose to incorporate any kind of MVx framework which uses its own way of manipulating the DOM</p></li>
 				</ul>
+				<a href="#">Back to Top</a>
 			</section>
 		</div>
 		<!-- FOOTER  -->
