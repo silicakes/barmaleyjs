@@ -1,123 +1,98 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset='utf-8' />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+		<meta name="description" content="Barmaleyjs : barmaleyjs (pronounced bɑr•mɑ•ləɪ / bar-muh-lay) is a small yet very flexible progressbar plugin written for and with jQuery. " />
+		<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+		<title>Barmaleyjs</title>
+	</head>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Barmaleyjs : barmaleyjs (pronounced bɑr•mɑ•ləɪ / bar-muh-lay) is a small yet very flexible progressbar plugin written for and with jQuery. " />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Barmaleyjs</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/MichaelKatz/barmaleyjs">View on GitHub</a>
-
-          <h1 id="project_title">Barmaleyjs</h1>
-          <h2 id="project_tagline">barmaleyjs (pronounced bɑr•mɑ•ləɪ / bar-muh-lay) is a small yet very flexible progressbar plugin written for and with jQuery. </h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/MichaelKatz/barmaleyjs/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/MichaelKatz/barmaleyjs/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>barmaleyjs</h1>
-
-<h2>Overview</h2>
-
-<p>Ever needed a progressbar and the one provided by jQuery-UI just didn't cut it?
-Meet Barmaley!
-Barmaley allows you to create a progressbar with several data progressions (referred as data-bars) and access/manage the data through a viewmodel attached to the parent containers $.data() object</p>
-
-<h2>Usage</h2>
-
-<p><code>$("#progressbar").barmaley(options);</code></p>
-
-<h2>Init options</h2>
-
-<p>The options parameter is a javascript object that contain one or more of the following:</p>
-
-<p><strong>dataSets</strong> - an array of objects that contain the following properties:</p>
-
-<ul>
-<li>
-<strong>barLength</strong> - [integer/float] The length of the current data-bar in %</li>
-<li>
-<strong>startFrom</strong> - [integer/float] the position in % from which the data-bar will begin</li>
-<li>
-<strong>barColor</strong> - [string] the color of the data-bar</li>
-<li>
-<strong>Css</strong> - [object] an object containing additional CSS properties</li>
-<li>
-<strong>title</strong> - [string] a text that will be placed within the elements title attribute</li>
-</ul><p><strong>ticks</strong> - [object] an object containing information about creating the ticks in the background (default: false)</p>
-
-<ul>
-<li>
-<strong>height</strong> - [string] the height of the ticks in px or %</li>
-<li>
-<strong>amount</strong> - [integer] the number of ticks to be displayed</li>
-<li>
-<strong>responsive</strong> - [boolean] defines whther the ticks spacing will be in % or in px. if you want your progress bar to be fluid, set this property to 'true'</li>
-</ul><h2>Methods</h2>
-
-<p>BarmaleyJS has some methods that might help in managing the data.
-Unless otherwise specified, the syntax will be:</p>
-
-<p><code>$("#progressbar").barmaley("method",[args | "args"]);</code></p>
-
-<p><strong>update</strong> <em>(id,{options})</em> - Updates a specific bar using its ID. All the properties of dataBars[{}] are valid</p>
-
-<p><strong>remove</strong> <em>(id)</em> - removes the data-bar with the corresponding id</p>
-
-<p><strong>add</strong> <em>({options})</em> - adds a new bar with a specified set of properties</p>
-
-<p><em>note that new item ids might vary according to the arrays situation</em></p>
-
-<h2>Accessing data</h2>
-
-<p>Accessing data has never been easier since the entire progress bar is represented as a view model stored within the jQuery data() object, under "barData":</p>
-
-<p><code>$("#progressbar").data("barData")</code></p>
-
-<p>The above is represented with several helpful attributes:</p>
-
-<ul>
-<li><p><strong>dataBars</strong> - [object] an object containing the data regarding the data-bars in addition to an integer id</p></li>
-<li><p><strong>element</strong> - the element the method was initiated upon, it might sound redundant, but will be very beneficiary to those who choose to incorporate any kind of MVx framework which uses its own way of manipulating the DOM</p></li>
-</ul>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Barmaleyjs maintained by <a href="https://github.com/MichaelKatz">MichaelKatz</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-40429320-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-
-  </body>
+	<body>
+		<!-- HEADER -->
+		<div id="header_wrap" class="outer">
+			<header class="inner">
+				<a id="forkme_banner" href="https://github.com/MichaelKatz/barmaleyjs">View on GitHub</a>
+				<h1 id="project_title">Barmaleyjs</h1>
+				<h2 id="project_tagline">barmaleyjs (pronounced bɑr•mɑ•ləɪ / bar-muh-lay) is a small yet very flexible progressbar plugin written for and with jQuery. </h2>
+				<section id="downloads">
+					<a class="zip_download_link" href="https://github.com/MichaelKatz/barmaleyjs/zipball/master">Download this project as a .zip file</a>
+					<a class="tar_download_link" href="https://github.com/MichaelKatz/barmaleyjs/tarball/master">Download this project as a tar.gz file</a>
+				</section>
+			</header>
+		</div>
+		<!-- MAIN CONTENT -->
+		<div id="main_content_wrap" class="outer">
+			<section id="main_content" class="inner">
+				<h1>barmaleyjs</h1>
+				<h2>Overview</h2>
+				<p>
+					Ever needed a progressbar and the one provided by jQuery-UI just didn't cut it?
+					Meet Barmaley!
+					Barmaley allows you to create a progressbar with several data progressions (referred as data-bars) and access/manage the data through a viewmodel attached to the parent containers $.data() object
+				</p>
+				<a href="#examples">Examples</a>
+				<h2>Usage</h2>
+				<p>
+					<code>$("#progressbar").barmaley(options);</code>
+				</p>
+				<h2>Init options</h2>
+				<p>The options parameter is a javascript object that contain one or more of the following:</p>
+				<p><strong>dataSets</strong> - an array of objects that contain the following properties:</p>
+				<ul>
+					<li><strong>barLength</strong> - [integer/float] The length of the current data-bar in %</li>
+					<li><strong>startFrom</strong> - [integer/float] the position in % from which the data-bar will begin</li>
+					<li><strong>barColor</strong> - [string] the color of the data-bar</li>
+					<li><strong>Css</strong> - [object] an object containing additional CSS properties</li>
+					<li><strong>title</strong> - [string] a text that will be placed within the elements title attribute</li>
+				</ul>
+				<p>
+					<strong>ticks</strong> - [object] an object containing information about creating the ticks in the background (default: false)
+				</p>
+				<ul>
+					<li><strong>height</strong> - [string] the height of the ticks in px or %</li>
+					<li><strong>amount</strong> - [integer] the number of ticks to be displayed</li>
+					<li><strong>responsive</strong> - [boolean] defines whther the ticks spacing will be in % or in px. if you want your progress bar to be fluid, set this property to 'true'</li>
+				</ul>
+				<h2>Methods</h2>
+				<p>
+					BarmaleyJS has some methods that might help in managing the data.
+					Unless otherwise specified, the syntax will be:
+				</p>
+				<p><code>$("#progressbar").barmaley("method",[args | "args"]);</code></p>
+				<p><strong>update</strong> <em>(id,{options})</em> - Updates a specific bar using its ID. All the properties of dataBars[{}] are valid</p>
+				<p><strong>remove</strong> <em>(id)</em> - removes the data-bar with the corresponding id</p>
+				<p><strong>add</strong> <em>({options})</em> - adds a new bar with a specified set of properties</p>
+				<p><em>note that new item ids might vary according to the arrays situation</em></p>
+				<h2>Accessing data</h2>
+				<p>
+					Accessing data has never been easier since the entire progress bar is represented as a view model 
+					stored within the jQuery data() object, under "barData":
+				</p>
+				<p><code>$("#progressbar").data("barData")</code></p>
+				<p>The above is represented with several helpful attributes:</p>
+				<ul>
+					<li><p><strong>dataBars</strong> - [object] an object containing the data regarding the data-bars in addition to an integer id</p></li>
+					<li><p><strong>element</strong> - the element the method was initiated upon, it might sound redundant, but will be very beneficiary to those who choose to incorporate any kind of MVx framework which uses its own way of manipulating the DOM</p></li>
+				</ul>
+			</section>
+		</div>
+		<!-- FOOTER  -->
+		<div id="footer_wrap" class="outer">
+			<footer class="inner">
+				<p class="copyright">Barmaleyjs maintained by <a href="https://github.com/MichaelKatz">MichaelKatz</a></p>
+				<p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+			</footer>
+		</div>
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			try {
+				var pageTracker = _gat._getTracker("UA-40429320-1");
+				pageTracker._trackPageview();
+			} catch(err) {}
+		</script>
+	</body>
 </html>
